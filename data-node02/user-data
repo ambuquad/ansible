@@ -1,0 +1,71 @@
+#cloud-config
+hostname: controller
+create_hostname_file: true
+fqdn: node-02.examprep.loc
+locale: nl_NL
+groups:
+  - student
+
+users:
+  - default
+  - name: student
+    gecos: student
+    primary_group: student
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    lock_passwd: false
+    passwd: $6$h44X3R6F9KmyhOxM$V8.Wx5THyJl3q3rEO4yClsEvoX7/OHuMncWRI8GEVGcQ7ntfpIhsylAKxDz1HWxkYjYPetDdV8zaShxjaSzpW.
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCdJkzbCLV05wJw0DBybumA/gIP5Vde5I/eXa6Dy1mHk7igLsaw+z81xUk9aMCDq6oVTos8dPqGoFAVsPdr/HhkZsx3GrnUR/tdFtovvSIXh8cQqDgQuv66+ZF8RAzViJRzhbq/SAHuPIgZftIS550juPUauigHKDXpzypcaa4QXvN3rRBRgk26V/nlqiRNvQ8NZBMRs1yeUGy67AMmK9Ji794id0lMaVmfIfdNyDhBBae1Fa+fun2WloQxizDyLZrYoVaWTYd1IOR81ZIUHTeHNGSmCAWZP6acjR3Wu3Stjpq6bGpAtKBZWyo7hBqtrO4Qnnh9979V174IpTHAnY1rAy8aG0TqnNJRz4Y2zHgUNOwnJR3I30OPVi4xCYmQh802NpC5SSbcXaQOjsFYoFtecGkGolhpFX6eiBFBCucQtS6PDMvsmLxzEicmfExtG5755o8t8SBL1w41HKjreajyKV+FQx2CMGzyCGgm7qdCDjPArYGokcYEcFmqJvhB3m8= dennis@dennis-lenovo
+
+write_files:
+  - path: /home/student/.ssh/id_rsa
+    owner: student:student
+    permissions: 0o600
+    defer: true
+    content: |
+      -----BEGIN OPENSSH PRIVATE KEY-----
+      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
+      -----END OPENSSH PRIVATE KEY-----
+
+package_update: true
+package_upgrade: true
+packages:
+  - python3-pip
+
+final_message: "The system is finally up, after $UPTIME seconds"

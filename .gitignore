@@ -1,0 +1,2 @@
+# ignore ALL .qcow2 files
+*.qcow2
