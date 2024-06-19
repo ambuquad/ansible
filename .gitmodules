@@ -1,3 +1,0 @@
-[submodule "playbooks"]
-	path = playbooks
-	url = git@github.com:ambuquad/playbooks.git
