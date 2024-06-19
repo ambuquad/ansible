@@ -24,8 +24,7 @@ echo `pwd`
 virt-install --name Controller-node \
 --memory 1536 --noreboot \
 --os-variant detect=on,name=rocky9-unknown \
---noautoconsole \
---cloud-init user-data=`pwd`"/data-controller/user-data",meta-data=`pwd`"/data-controller/meta-data" \
+--cloud-init user-data=`pwd`"/data-controller/user-data",meta-data=`pwd`"/data-controller/meta-data",network-config=`pwd`"/data-controller/network.cfg" \
 --disk=size=10,backing_store=`pwd`"/Controller-node.qcow2"
 
 ## Setup Node-01
@@ -45,7 +44,7 @@ virt-install --name Node-01 \
 --memory 1536 --noreboot \
 --os-variant detect=on,name=rocky9-unknown \
 --noautoconsole \
---cloud-init user-data=`pwd`"/data-node01/user-data",meta-data=`pwd`"/data-node01/meta-data" \
+--cloud-init user-data=`pwd`"/data-node01/user-data",meta-data=`pwd`"/data-node01/meta-data",network-config=`pwd`"/data-node01/network.cfg" \
 --disk=size=10,backing_store=`pwd`"/Node-01.qcow2"
 
 ## Setup Node-02
@@ -65,5 +64,5 @@ virt-install --name Node-02 \
 --memory 1536 --noreboot \
 --os-variant detect=on,name=rocky9-unknown \
 --noautoconsole \
---cloud-init user-data=`pwd`"/data-node02/user-data",meta-data=`pwd`"/data-node02/meta-data" \
+--cloud-init user-data=`pwd`"/data-node02/user-data",meta-data=`pwd`"/data-node02/meta-data",network-config=`pwd`"/data-node02/network.cfg" \
 --disk=size=10,backing_store=`pwd`"/Node-02.qcow2"

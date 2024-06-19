@@ -63,6 +63,21 @@ write_files:
       5hHDi7qLIRbP0AAAAUZGVubmlzQGRlbm5pcy1sZW5vdm8BAgMEBQYH
       -----END OPENSSH PRIVATE KEY-----
 
+write_files:
+  - path: /etc/hosts
+    owner: root:root
+    permissions: 0o644
+    defer: true
+    content: |
+      127.0.0.1       localhost localhost.localdomain localhost4 localhost4.localdomain4
+      192.168.122.100 controller.examprep.loc controller
+      192.168.122.101 node-01.examprep.loc node-01
+      192.168.122.102 node-02.examprep.loc node-02
+      192.168.122.103 node-03.examprep.loc node-03
+      192.168.122.104 node-04.examprep.loc node-04
+      
+      ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+
 package_update: true
 package_upgrade: true
 packages:
