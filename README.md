@@ -1,4 +1,5 @@
-# ansible
-ansible master project
+# ansible-exam prep
 
-This is my ansilbe master project with roles and playbook as git submodules
+Repo for quick setup of your ansible-exam prep lab.
+
+Just execute setup.sh

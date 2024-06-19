@@ -1,4 +1,0 @@
-[rke]
-master01.dennisnet.loc ansible_host=192.168.158.140
-master02.dennisnet.loc ansible_host=192.168.158.141
-master03.dennisnet.loc ansible_host=192.168.158.142

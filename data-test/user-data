@@ -1,0 +1,25 @@
+#cloud-config
+hostname: controller
+create_hostname_file: true
+fqdn: controller.examprep.loc
+locale: nl_NL
+groups:
+  - student
+
+users:
+  - default
+  - name: student
+    gecos: student
+    primary_group: student
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    lock_passwd: false
+    passwd: $6$h44X3R6F9KmyhOxM$V8.Wx5THyJl3q3rEO4yClsEvoX7/OHuMncWRI8GEVGcQ7ntfpIhsylAKxDz1HWxkYjYPetDdV8zaShxjaSzpW.
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCdJkzbCLV05wJw0DBybumA/gIP5Vde5I/eXa6Dy1mHk7igLsaw+z81xUk9aMCDq6oVTos8dPqGoFAVsPdr/HhkZsx3GrnUR/tdFtovvSIXh8cQqDgQuv66+ZF8RAzViJRzhbq/SAHuPIgZftIS550juPUauigHKDXpzypcaa4QXvN3rRBRgk26V/nlqiRNvQ8NZBMRs1yeUGy67AMmK9Ji794id0lMaVmfIfdNyDhBBae1Fa+fun2WloQxizDyLZrYoVaWTYd1IOR81ZIUHTeHNGSmCAWZP6acjR3Wu3Stjpq6bGpAtKBZWyo7hBqtrO4Qnnh9979V174IpTHAnY1rAy8aG0TqnNJRz4Y2zHgUNOwnJR3I30OPVi4xCYmQh802NpC5SSbcXaQOjsFYoFtecGkGolhpFX6eiBFBCucQtS6PDMvsmLxzEicmfExtG5755o8t8SBL1w41HKjreajyKV+FQx2CMGzyCGgm7qdCDjPArYGokcYEcFmqJvhB3m8= dennis@dennis-lenovo
+
+package_update: true
+packages:
+  - ansible-core
+
+final_message: "The system is finally up, after $UPTIME seconds"

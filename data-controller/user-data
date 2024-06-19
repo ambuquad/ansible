@@ -1,0 +1,12 @@
+#cloud-config
+locale: en_US
+groups:
+  - admingroup: [root,sys]
+  - student
+users:
+  - default
+  - name: student
+    gecos: student
+    primary_group: student
+    lock_passwd: false
+    passwd: $6$j212wezy$7H/1LT4f9/N3wpgNunhsIqtMj62OKiS3nyNwuizouQc3u7MbYCarYeAHWYPYb2FT.lbioDm2RrkJPb9BZMN1O/
