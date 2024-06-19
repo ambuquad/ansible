@@ -24,6 +24,7 @@ echo `pwd`
 virt-install --name Controller-node \
 --memory 1536 --noreboot \
 --os-variant detect=on,name=rocky9-unknown \
+--noautoconsole \
 --cloud-init user-data=`pwd`"/data-controller/user-data",meta-data=`pwd`"/data-controller/meta-data",network-config=`pwd`"/data-controller/network.cfg" \
 --disk=size=10,backing_store=`pwd`"/Controller-node.qcow2"
 
