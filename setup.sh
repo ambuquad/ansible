@@ -47,3 +47,23 @@ virt-install --name Node-01 \
 --noautoconsole \
 --cloud-init user-data=`pwd`"/data-node01/user-data",meta-data=`pwd`"/data-node01/meta-data" \
 --disk=size=10,backing_store=`pwd`"/Node-01.qcow2"
+
+## Setup Node-02
+
+if [ -f Node-02.qcow2 ]; then
+   virsh destroy Node-02
+   virsh undefine Node-02
+   rm -rf Node-02.qcow2
+fi
+
+echo "Create Node-02.qcow2"
+cp $CloudImage Node-02.qcow2
+
+echo `pwd`
+
+virt-install --name Node-02 \
+--memory 1536 --noreboot \
+--os-variant detect=on,name=rocky9-unknown \
+--noautoconsole \
+--cloud-init user-data=`pwd`"/data-node02/user-data",meta-data=`pwd`"/data-node02/meta-data" \
+--disk=size=10,backing_store=`pwd`"/Node-02.qcow2"
