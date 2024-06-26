@@ -21,9 +21,9 @@
 5) If you wish, you can also test by pinging all the managed hosts
 
 6) Create a shell script with the name packages.sh that runs an Ansible ad-hoc command to create a yum repository on all managed hosts using the information as below:
-  1) The Docker base URL is https://download.docker.com/linux/centos/docker-ce.repo
+  1) The Docker base URL is https://download.docker.com/linux/centos/$releasever/$basearch/stable
   2) The Docker description is Rocky 9 Docker
-  3) The Docker names are Rocky9_Docker
+  3) The Docker name is Rocky9_Docker
   4) The repositories must be enabled with a gpgkey of https://download.docker.com/linux/centos/gpg
 
 7) Create a playbook that meets following requirements:
