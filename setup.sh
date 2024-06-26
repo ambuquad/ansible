@@ -67,3 +67,43 @@ virt-install --name Node-02 \
 --noautoconsole \
 --cloud-init user-data=`pwd`"/data-node02/user-data",meta-data=`pwd`"/data-node02/meta-data",network-config=`pwd`"/data-node02/network.cfg" \
 --disk=size=10,backing_store=`pwd`"/Node-02.qcow2"
+
+## Setup Node-03
+
+if [ -f Node-03.qcow2 ]; then
+   virsh destroy Node-03
+   virsh undefine Node-03
+   rm -rf Node-03.qcow2
+fi
+
+echo "Create Node-03.qcow2"
+cp $CloudImage Node-03.qcow2
+
+echo `pwd`
+
+virt-install --name Node-03 \
+--memory 1536 --noreboot \
+--os-variant detect=on,name=rocky9-unknown \
+--noautoconsole \
+--cloud-init user-data=`pwd`"/data-node03/user-data",meta-data=`pwd`"/data-node03/meta-data",network-config=`pwd`"/data-node03/network.cfg" \
+--disk=size=10,backing_store=`pwd`"/Node-03.qcow2"
+
+## Setup Node-04
+
+if [ -f Node-04.qcow2 ]; then
+   virsh destroy Node-04
+   virsh undefine Node-04
+   rm -rf Node-04.qcow2
+fi
+
+echo "Create Node-04.qcow2"
+cp $CloudImage Node-04.qcow2
+
+echo `pwd`
+
+virt-install --name Node-04 \
+--memory 1536 --noreboot \
+--os-variant detect=on,name=rocky9-unknown \
+--noautoconsole \
+--cloud-init user-data=`pwd`"/data-node04/user-data",meta-data=`pwd`"/data-node04/meta-data",network-config=`pwd`"/data-node04/network.cfg" \
+--disk=size=10,backing_store=`pwd`"/Node-04.qcow2"

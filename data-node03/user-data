@@ -1,7 +1,7 @@
 #cloud-config
-hostname: node-02
+hostname: node-03
 create_hostname_file: true
-fqdn: node-02.examprep.loc
+fqdn: node-03.examprep.loc
 locale: nl_NL
 groups:
   - student
