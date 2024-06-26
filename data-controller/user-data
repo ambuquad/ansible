@@ -19,7 +19,21 @@ users:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCdJkzbCLV05wJw0DBybumA/gIP5Vde5I/eXa6Dy1mHk7igLsaw+z81xUk9aMCDq6oVTos8dPqGoFAVsPdr/HhkZsx3GrnUR/tdFtovvSIXh8cQqDgQuv66+ZF8RAzViJRzhbq/SAHuPIgZftIS550juPUauigHKDXpzypcaa4QXvN3rRBRgk26V/nlqiRNvQ8NZBMRs1yeUGy67AMmK9Ji794id0lMaVmfIfdNyDhBBae1Fa+fun2WloQxizDyLZrYoVaWTYd1IOR81ZIUHTeHNGSmCAWZP6acjR3Wu3Stjpq6bGpAtKBZWyo7hBqtrO4Qnnh9979V174IpTHAnY1rAy8aG0TqnNJRz4Y2zHgUNOwnJR3I30OPVi4xCYmQh802NpC5SSbcXaQOjsFYoFtecGkGolhpFX6eiBFBCucQtS6PDMvsmLxzEicmfExtG5755o8t8SBL1w41HKjreajyKV+FQx2CMGzyCGgm7qdCDjPArYGokcYEcFmqJvhB3m8= dennis@dennis-lenovo
 
 write_files:
-  - path: /home/student/.ssh/id_rsa
+  - encoding: text/plain
+    path: /etc/hosts
+    owner: root:root
+    permissions: 0o644
+    content: |
+      127.0.0.1       localhost localhost.localdomain localhost4 localhost4.localdomain4
+      192.168.122.100 controller.examprep.loc controller
+      192.168.122.101 node-01.examprep.loc node-01
+      192.168.122.102 node-02.examprep.loc node-02
+      192.168.122.103 node-03.examprep.loc node-03
+      192.168.122.104 node-04.examprep.loc node-04
+      192.168.122.105 node-04.examprep.loc node-05
+      ::1         localhost localhost.localdomain localhost6 localhost6.localdomain
+  - encoding: text/plain
+    path: /home/student/.ssh/id_rsa
     owner: student:student
     permissions: 0o600
     defer: true
@@ -62,21 +76,6 @@ write_files:
       ixlyWSntYrVqMm/NnWgm00ADLCbUd2nz1Fuc4mTHF743tCT9mfWK4DFzCmwnbssjAWcNT7
       5hHDi7qLIRbP0AAAAUZGVubmlzQGRlbm5pcy1sZW5vdm8BAgMEBQYH
       -----END OPENSSH PRIVATE KEY-----
-
-write_files:
-  - path: /etc/hosts
-    owner: root:root
-    permissions: 0o644
-    defer: true
-    content: |
-      127.0.0.1       localhost localhost.localdomain localhost4 localhost4.localdomain4
-      192.168.122.100 controller.examprep.loc controller
-      192.168.122.101 node-01.examprep.loc node-01
-      192.168.122.102 node-02.examprep.loc node-02
-      192.168.122.103 node-03.examprep.loc node-03
-      192.168.122.104 node-04.examprep.loc node-04
-      
-      ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
 
 package_update: true
 package_upgrade: true
