@@ -2,7 +2,7 @@
 hostname: node-01
 create_hostname_file: true
 fqdn: node-01.examprep.loc
-locale: nl_NL
+locale: en_US.UTF-8
 groups:
   - student
 

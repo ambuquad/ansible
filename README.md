@@ -1,5 +1,8 @@
 # ansible-exam prep
 
+You need at least v3.0.0 of virt-manager(virt-install) for --cloud-init support
+See https://github.com/virt-manager/virt-manager/releases
+
 Repo for quick setup of your ansible-exam(EX-294) prep lab.
 
 Just execute setup.sh
